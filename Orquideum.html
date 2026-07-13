@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Orquideum Publishing is an independent nonfiction press creating elegant, sharply distilled books for readers navigating work, money, identity, and reinvention." />
+  <meta name="theme-color" content="#34081A" />
+  <title>Orquideum Publishing | Books Distilled to Their Essence</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bone: #f3ecdd;
+      --bone-deep: #e8dec8;
+      --wine: #4b1224;
+      --wine-deep: #34081a;
+      --gold: #b8923f;
+      --gold-pale: #d9b989;
+      --ink: #241813;
+      --sage: #5b6650;
+      --cream: #fbf7ee;
+      --rule: rgba(75, 18, 36, 0.18);
+      --shadow: 0 24px 80px rgba(52, 8, 26, 0.12);
+      --page: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--wine-deep);
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 0%, rgba(184, 146, 63, 0.12), transparent 32%),
+        radial-gradient(circle at 88% 24%, rgba(75, 18, 36, 0.08), transparent 30%),
+        var(--bone);
+      font-family: "EB Garamond", Georgia, serif;
+      font-size: 18px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.2;
+      z-index: 20;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(36, 24, 19, 0.02) 0, rgba(36, 24, 19, 0.02) 1px, transparent 1px, transparent 4px);
+      mix-blend-mode: multiply;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 12px;
+      z-index: 999;
+      background: var(--bone);
+      color: var(--wine-deep);
+      padding: 10px 16px;
+      border: 1px solid var(--gold);
+    }
+
+    .skip-link:focus {
+      left: 12px;
+    }
+
+    .shell {
+      width: min(calc(100% - 40px), var(--page));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      font-family: "Cinzel", serif;
+      font-size: 0.69rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      color: var(--wine-deep);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 500;
+      line-height: 0.98;
+      text-wrap: balance;
+    }
+
+    h1 {
+      max-width: 900px;
+      font-size: clamp(4.2rem, 10vw, 8.8rem);
+      letter-spacing: -0.045em;
+    }
+
+    h2 {
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      letter-spacing: -0.035em;
+    }
+
+    h3 {
+      font-size: clamp(1.65rem, 3vw, 2.35rem);
+      line-height: 1.04;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .display-italic {
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .site-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(243, 236, 221, 0.14);
+    }
+
+    .nav {
+      min-height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand-lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      color: var(--bone);
+      text-decoration: none;
+    }
+
+    .brand-lockup svg {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+    }
+
+    .brand-wordmark {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .brand-wordmark strong {
+      font-family: "Cinzel", serif;
+      font-size: 1.28rem;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-shadow: 0 1px 18px rgba(217, 185, 137, 0.14);
+    }
+
+    .brand-wordmark span {
+      margin-top: 5px;
+      color: var(--gold-pale);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 0.64rem;
+      font-style: italic;
+      letter-spacing: 0.12em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      font-family: "Cinzel", serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a {
+      color: rgba(243, 236, 221, 0.78);
+      text-decoration: none;
+      transition: color 180ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--gold-pale);
+    }
+
+    .nav-cta {
+      padding: 12px 17px;
+      border: 1px solid rgba(217, 185, 137, 0.52);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 920px;
+      display: grid;
+      align-items: end;
+      color: var(--bone);
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 72% 36%, rgba(184, 146, 63, 0.18), transparent 30%),
+        linear-gradient(120deg, #290614 0%, #400a20 52%, #21040f 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.25;
+      background:
+        linear-gradient(105deg, transparent 0 58%, rgba(217, 185, 137, 0.12) 58.2%, transparent 58.4%),
+        linear-gradient(75deg, transparent 0 66%, rgba(217, 185, 137, 0.08) 66.2%, transparent 66.4%);
+    }
+
+    .hero-seal {
+      position: absolute;
+      top: 150px;
+      right: max(4vw, calc((100vw - var(--page)) / 2));
+      width: min(44vw, 520px);
+      opacity: 0.78;
+      filter: drop-shadow(0 18px 70px rgba(0, 0, 0, 0.24));
+      animation: float 10s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-12px) rotate(1.5deg); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 230px 0 98px;
+    }
+
+    .hero .eyebrow {
+      color: var(--gold-pale);
+    }
+
+    .hero h1 {
+      color: var(--bone);
+    }
+
+    .hero-copy {
+      max-width: 690px;
+      margin-top: 28px;
+      color: rgba(243, 236, 221, 0.82);
+      font-size: clamp(1.2rem, 2.3vw, 1.72rem);
+      line-height: 1.4;
+    }
+
+    .hero-actions {
+      margin-top: 38px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 14px 22px;
+      border: 1px solid transparent;
+      font-family: "Cinzel", serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.17em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      color: var(--wine-deep);
+      background: var(--gold-pale);
+      border-color: var(--gold-pale);
+    }
+
+    .button-primary:hover,
+    .button-primary:focus-visible {
+      background: var(--bone);
+      border-color: var(--bone);
+    }
+
+    .button-ghost {
+      color: var(--bone);
+      border-color: rgba(243, 236, 221, 0.34);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .button-ghost:hover,
+    .button-ghost:focus-visible {
+      border-color: var(--gold-pale);
+      color: var(--gold-pale);
+    }
+
+    .hero-note {
+      position: absolute;
+      right: 0;
+      bottom: 104px;
+      width: 290px;
+      padding-left: 20px;
+      border-left: 1px solid rgba(217, 185, 137, 0.55);
+      color: rgba(243, 236, 221, 0.62);
+      font-size: 0.98rem;
+      font-style: italic;
+      line-height: 1.45;
+    }
+
+    .proof-strip {
+      border-bottom: 1px solid var(--rule);
+      background: rgba(251, 247, 238, 0.44);
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .proof-item {
+      min-height: 132px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 24px 38px;
+      border-right: 1px solid var(--rule);
+    }
+
+    .proof-item:first-child {
+      border-left: 1px solid var(--rule);
+    }
+
+    .proof-item strong {
+      color: var(--wine-deep);
+      font-family: "Cinzel", serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .proof-item span {
+      margin-top: 9px;
+      color: #5a463c;
+      font-size: 1.06rem;
+      line-height: 1.35;
+    }
+
+    .section {
+      position: relative;
+      padding: 140px 0;
+    }
+
+    .section-rule {
+      width: 58px;
+      height: 1px;
+      margin: 24px 0 28px;
+      background: var(--gold);
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: clamp(60px, 10vw, 130px);
+      align-items: start;
+    }
+
+    .intro-copy {
+      padding-top: 12px;
+    }
+
+    .intro-copy p {
+      margin-bottom: 22px;
+      color: #4c3a31;
+      font-size: 1.13rem;
+    }
+
+    .intro-copy .lead {
+      color: var(--wine-deep);
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.75rem, 3vw, 2.45rem);
+      line-height: 1.16;
+    }
+
+    .editorial-card {
+      position: relative;
+      margin-top: 76px;
+      padding: clamp(38px, 7vw, 74px);
+      border: 1px solid rgba(184, 146, 63, 0.34);
+      background:
+        linear-gradient(rgba(251, 247, 238, 0.92), rgba(251, 247, 238, 0.92)),
+        radial-gradient(circle at 85% 20%, rgba(184, 146, 63, 0.22), transparent 34%);
+      box-shadow: var(--shadow);
+    }
+
+    .editorial-card::before,
+    .editorial-card::after {
+      content: "";
+      position: absolute;
+      background: var(--gold);
+    }
+
+    .editorial-card::before {
+      top: 18px;
+      right: 18px;
+      width: 52px;
+      height: 1px;
+    }
+
+    .editorial-card::after {
+      top: 18px;
+      right: 18px;
+      width: 1px;
+      height: 52px;
+    }
+
+    .quote {
+      max-width: 900px;
+      color: var(--wine-deep);
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.1rem, 4vw, 3.8rem);
+      font-style: italic;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+
+    .quote-source {
+      margin-top: 28px;
+      color: var(--sage);
+      font-family: "Cinzel", serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .focus-section {
+      color: var(--bone);
+      background:
+        radial-gradient(circle at 12% 90%, rgba(184, 146, 63, 0.13), transparent 30%),
+        var(--wine-deep);
+    }
+
+    .focus-section h2,
+    .focus-section h3 {
+      color: var(--bone);
+    }
+
+    .focus-section .section-copy {
+      max-width: 720px;
+      margin-top: 26px;
+      color: rgba(243, 236, 221, 0.72);
+      font-size: 1.18rem;
+    }
+
+    .focus-grid {
+      margin-top: 70px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border-top: 1px solid rgba(243, 236, 221, 0.18);
+      border-left: 1px solid rgba(243, 236, 221, 0.18);
+    }
+
+    .focus-card {
+      min-height: 310px;
+      padding: clamp(34px, 6vw, 58px);
+      border-right: 1px solid rgba(243, 236, 221, 0.18);
+      border-bottom: 1px solid rgba(243, 236, 221, 0.18);
+      transition: background 220ms ease;
+    }
+
+    .focus-card:hover {
+      background: rgba(243, 236, 221, 0.045);
+    }
+
+    .focus-number {
+      display: block;
+      margin-bottom: 28px;
+      color: var(--gold-pale);
+      font-family: "Cinzel", serif;
+      font-size: 0.69rem;
+      letter-spacing: 0.15em;
+    }
+
+    .focus-card p {
+      margin-top: 16px;
+      color: rgba(243, 236, 221, 0.64);
+      font-size: 1.04rem;
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: clamp(50px, 9vw, 110px);
+      align-items: start;
+    }
+
+    .approach-list {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--rule);
+    }
+
+    .approach-item {
+      display: grid;
+      grid-template-columns: 82px 1fr;
+      gap: 18px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .approach-item .num {
+      color: var(--gold);
+      font-family: "Cinzel", serif;
+      font-size: 0.73rem;
+      letter-spacing: 0.12em;
+    }
+
+    .approach-item strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--wine-deep);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.7rem;
+      font-weight: 500;
+      line-height: 1.1;
+    }
+
+    .approach-item p {
+      color: #5a463c;
+    }
+
+    .partners {
+      padding-top: 0;
+    }
+
+    .partner-panel {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      min-height: 560px;
+      border: 1px solid rgba(184, 146, 63, 0.3);
+      background: var(--cream);
+      box-shadow: var(--shadow);
+    }
+
+    .partner-copy {
+      padding: clamp(46px, 8vw, 86px);
+    }
+
+    .partner-copy p:not(.eyebrow) {
+      max-width: 620px;
+      margin-top: 26px;
+      color: #574239;
+      font-size: 1.12rem;
+    }
+
+    .partner-list {
+      margin: 34px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+
+    .partner-list li {
+      position: relative;
+      padding-left: 23px;
+      color: var(--wine-deep);
+    }
+
+    .partner-list li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      top: 1px;
+      color: var(--gold);
+      font-size: 0.65rem;
+    }
+
+    .partner-art {
+      position: relative;
+      min-height: 420px;
+      background:
+        radial-gradient(circle at center, rgba(217, 185, 137, 0.22), transparent 36%),
+        linear-gradient(150deg, #4b1224 0%, #2e0717 100%);
+    }
+
+    .partner-art svg {
+      position: absolute;
+      width: min(72%, 390px);
+      inset: 50% auto auto 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.88;
+    }
+
+    .contact-section {
+      color: var(--bone);
+      background:
+        radial-gradient(circle at 85% 20%, rgba(184, 146, 63, 0.14), transparent 28%),
+        #21040f;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: clamp(60px, 10vw, 130px);
+      align-items: start;
+    }
+
+    .contact-section h2 {
+      color: var(--bone);
+    }
+
+    .contact-copy {
+      max-width: 520px;
+      margin-top: 26px;
+      color: rgba(243, 236, 221, 0.68);
+      font-size: 1.13rem;
+    }
+
+    .contact-note {
+      margin-top: 44px;
+      padding-left: 18px;
+      border-left: 1px solid rgba(217, 185, 137, 0.5);
+      color: rgba(243, 236, 221, 0.52);
+      font-style: italic;
+    }
+
+    .contact-note a {
+      color: var(--gold-pale);
+      text-decoration-color: rgba(217, 185, 137, 0.45);
+      text-underline-offset: 4px;
+    }
+
+    .contact-note a:hover,
+    .contact-note a:focus-visible {
+      color: var(--bone);
+      text-decoration-color: var(--bone);
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 18px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field label {
+      color: var(--gold-pale);
+      font-family: "Cinzel", serif;
+      font-size: 0.66rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid rgba(243, 236, 221, 0.2);
+      border-radius: 0;
+      outline: none;
+      color: var(--bone);
+      background: rgba(243, 236, 221, 0.035);
+      transition: border-color 180ms ease, background 180ms ease;
+    }
+
+    .field input,
+    .field select {
+      height: 52px;
+      padding: 0 15px;
+    }
+
+    .field textarea {
+      min-height: 145px;
+      resize: vertical;
+      padding: 14px 15px;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--gold-pale);
+      background: rgba(243, 236, 221, 0.055);
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: rgba(243, 236, 221, 0.34);
+    }
+
+    .field select option {
+      color: var(--ink);
+      background: var(--bone);
+    }
+
+    .hidden-field {
+      position: absolute;
+      left: -9999px;
+    }
+
+    .form-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 8px;
+    }
+
+    .form-note {
+      max-width: 390px;
+      color: rgba(243, 236, 221, 0.42);
+      font-size: 0.83rem;
+      line-height: 1.35;
+    }
+
+    .form-status {
+      min-height: 26px;
+      color: var(--gold-pale);
+      font-style: italic;
+    }
+
+    .site-footer {
+      padding: 32px 0;
+      color: rgba(243, 236, 221, 0.52);
+      background: #16020a;
+      border-top: 1px solid rgba(243, 236, 221, 0.1);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      font-family: "Cinzel", serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .footer-tagline {
+      color: var(--gold-pale);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 0.92rem;
+      font-style: italic;
+      letter-spacing: 0.06em;
+      text-transform: none;
+    }
+
+    @media (max-width: 960px) {
+      .hero {
+        min-height: 860px;
+      }
+
+      .hero-seal {
+        top: 140px;
+        right: -80px;
+        width: 460px;
+        opacity: 0.36;
+      }
+
+      .hero-note {
+        display: none;
+      }
+
+      .intro-grid,
+      .approach-grid,
+      .contact-grid,
+      .partner-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .focus-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .partner-art {
+        min-height: 420px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      body {
+        font-size: 17px;
+      }
+
+      .shell {
+        width: min(calc(100% - 28px), var(--page));
+      }
+
+      .site-header {
+        position: absolute;
+      }
+
+      .nav {
+        min-height: 78px;
+      }
+
+      .nav-links a:not(.nav-cta) {
+        display: none;
+      }
+
+      .brand-wordmark strong {
+        font-size: 1.02rem;
+      }
+
+      .brand-wordmark span {
+        font-size: 0.58rem;
+      }
+
+      .nav-cta {
+        padding: 10px 13px;
+        font-size: 0.6rem;
+      }
+
+      .hero {
+        min-height: 780px;
+      }
+
+      .hero-content {
+        padding: 180px 0 72px;
+      }
+
+      .hero-seal {
+        top: 118px;
+        right: -185px;
+        width: 430px;
+        opacity: 0.25;
+      }
+
+      .hero-actions {
+        align-items: stretch;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+
+      .proof-grid,
+      .focus-grid,
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .proof-item,
+      .proof-item:first-child {
+        min-height: 112px;
+        border-left: 1px solid var(--rule);
+        border-right: 1px solid var(--rule);
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .section {
+        padding: 98px 0;
+      }
+
+      .editorial-card {
+        margin-top: 54px;
+      }
+
+      .focus-card {
+        min-height: auto;
+      }
+
+      .approach-item {
+        grid-template-columns: 58px 1fr;
+      }
+
+      .form-footer,
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .form-footer .button {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="shell nav">
+      <a class="brand-lockup" href="#top" aria-label="Orquideum Publishing home">
+        <svg viewBox="0 0 150 150" aria-hidden="true">
+          <circle cx="75" cy="75" r="69" fill="none" stroke="#D9B989" stroke-width="1"/>
+          <circle cx="75" cy="75" r="61" fill="none" stroke="#F3ECDD" stroke-width="0.55" stroke-dasharray="1 4" opacity="0.7"/>
+          <g fill="none" stroke="#D9B989" stroke-width="1">
+            <polygon points="75,31 110,92 40,92"/>
+            <polygon points="75,119 40,58 110,58" opacity="0.7"/>
+          </g>
+          <g fill="none" stroke="#F3ECDD" stroke-width="1.2">
+            <path d="M75 20 C 92 42, 92 58, 75 75 C 58 58, 58 42, 75 20 Z"/>
+            <path d="M75 130 C 92 108, 92 92, 75 75 C 58 92, 58 108, 75 130 Z"/>
+            <path d="M20 75 C 42 58, 58 58, 75 75 C 58 92, 42 92, 20 75 Z"/>
+            <path d="M130 75 C 108 58, 92 58, 75 75 C 92 92, 108 92, 130 75 Z"/>
+          </g>
+          <circle cx="75" cy="75" r="9" fill="none" stroke="#D9B989" stroke-width="1.2"/>
+          <circle cx="75" cy="75" r="3.2" fill="#D9B989"/>
+        </svg>
+        <span class="brand-wordmark">
+          <strong>ORQUIDEUM</strong>
+          <span>Publishing</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#publishing">What We Publish</a>
+        <a href="#partners">Partnerships</a>
+        <a class="nav-cta" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <svg class="hero-seal" viewBox="0 0 520 520" aria-hidden="true">
+        <circle cx="260" cy="260" r="242" fill="none" stroke="#B8923F" stroke-width="1.5"/>
+        <circle cx="260" cy="260" r="220" fill="none" stroke="#F3ECDD" stroke-width="0.8" stroke-dasharray="2 10" opacity="0.65"/>
+        <circle cx="260" cy="260" r="156" fill="none" stroke="#B8923F" stroke-width="1.2"/>
+        <g stroke="#D9B989" stroke-width="0.7" opacity="0.34">
+          <line x1="260" y1="18" x2="260" y2="502"/>
+          <line x1="18" y1="260" x2="502" y2="260"/>
+          <line x1="89" y1="89" x2="431" y2="431"/>
+          <line x1="431" y1="89" x2="89" y2="431"/>
+          <line x1="260" y1="18" x2="260" y2="502" transform="rotate(30 260 260)"/>
+          <line x1="260" y1="18" x2="260" y2="502" transform="rotate(60 260 260)"/>
+        </g>
+        <g fill="none" stroke="#D9B989" stroke-width="2.2">
+          <polygon points="260,108 382,319 138,319"/>
+          <polygon points="260,412 138,201 382,201" opacity="0.66"/>
+        </g>
+        <g fill="none" stroke="#F3ECDD" stroke-width="3.2">
+          <path d="M260 72 C 318 148, 318 203, 260 260 C 202 203, 202 148, 260 72 Z"/>
+          <path d="M260 448 C 318 372, 318 317, 260 260 C 202 317, 202 372, 260 448 Z"/>
+          <path d="M72 260 C 148 202, 203 202, 260 260 C 203 318, 148 318, 72 260 Z"/>
+          <path d="M448 260 C 372 202, 317 202, 260 260 C 317 318, 372 318, 448 260 Z"/>
+        </g>
+        <circle cx="260" cy="260" r="34" fill="none" stroke="#B8923F" stroke-width="3"/>
+        <circle cx="260" cy="260" r="11" fill="#B8923F"/>
+      </svg>
+
+      <div class="shell hero-content">
+        <p class="eyebrow">Independent nonfiction publishing</p>
+        <h1>Books with <span class="display-italic">depth, clarity,</span> and staying power.</h1>
+        <p class="hero-copy">Orquideum Publishing creates elegant, sharply distilled nonfiction for readers navigating work, money, identity, emotional wellbeing, and reinvention.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#publishing">Explore our focus</a>
+          <a class="button button-ghost" href="#contact">Start a conversation</a>
+        </div>
+        <p class="hero-note">A quiet imprint with an exacting point of view, built for readers who want substance without unnecessary noise.</p>
+      </div>
+    </section>
+
+    <section class="proof-strip" aria-label="Orquideum principles">
+      <div class="shell proof-grid">
+        <div class="proof-item">
+          <strong>Reader-led</strong>
+          <span>Built around meaningful questions and real reader needs.</span>
+        </div>
+        <div class="proof-item">
+          <strong>Editorially exacting</strong>
+          <span>Clear thinking, careful language, and no ornamental fluff.</span>
+        </div>
+        <div class="proof-item">
+          <strong>Designed to endure</strong>
+          <span>Evergreen ideas, refined presentation, lasting relevance.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="shell">
+        <div class="intro-grid">
+          <div>
+            <p class="eyebrow">The house</p>
+            <h2>A modern press with an old-world respect for the book.</h2>
+            <div class="section-rule"></div>
+          </div>
+          <div class="intro-copy">
+            <p class="lead">Orquideum is an independent publishing house devoted to intelligent, emotionally resonant nonfiction.</p>
+            <p>We publish compact, high-impact books that meet readers at the hinge points of modern life: changing careers, understanding money, protecting energy, rebuilding confidence, and becoming someone new without losing what matters.</p>
+            <p>Our list is intentionally focused, but never narrow. We are drawn to work that is useful, beautifully expressed, and culturally aware, whether it speaks to a specific season of life or a much broader human question.</p>
+          </div>
+        </div>
+
+        <div class="editorial-card">
+          <p class="quote">“We believe the best nonfiction does more than inform. It gives language to what a reader has been carrying, then offers a way forward.”</p>
+          <p class="quote-source">Orquideum editorial principle</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section focus-section" id="publishing">
+      <div class="shell">
+        <p class="eyebrow">What we publish</p>
+        <h2>Practical wisdom for complicated lives.</h2>
+        <p class="section-copy">Our nonfiction list sits where inner life meets real life. Each book is developed around a clear reader problem, a distinctive point of view, and the promise of meaningful progress.</p>
+
+        <div class="focus-grid">
+          <article class="focus-card">
+            <span class="focus-number">01 · Reinvention</span>
+            <h3>Career, identity, and second chapters</h3>
+            <p>Thoughtful guidance for people rethinking what comes next, from quiet pivots to full-scale reinvention.</p>
+          </article>
+          <article class="focus-card">
+            <span class="focus-number">02 · Emotional wellbeing</span>
+            <h3>Resilience, regulation, and self-trust</h3>
+            <p>Grounded books that help readers understand themselves, protect their energy, and move with greater steadiness.</p>
+          </article>
+          <article class="focus-card">
+            <span class="focus-number">03 · Work and influence</span>
+            <h3>Power, boundaries, and professional fluency</h3>
+            <p>Sharp, useful guidance for navigating the unspoken realities of work without abandoning integrity.</p>
+          </article>
+          <article class="focus-card">
+            <span class="focus-number">04 · Money and meaning</span>
+            <h3>Financial psychology and personal agency</h3>
+            <p>Books that explore the beliefs, behaviors, and emotional patterns shaping how people earn, spend, save, and choose.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell approach-grid">
+        <div>
+          <p class="eyebrow">Our editorial approach</p>
+          <h2>Small list. High standards.</h2>
+          <div class="section-rule"></div>
+          <p style="color:#574239; max-width:520px;">We are building a focused catalog rather than chasing volume. Every title must earn its place through relevance, clarity, and reader value.</p>
+        </div>
+
+        <div class="approach-list">
+          <div class="approach-item">
+            <span class="num">01</span>
+            <div>
+              <strong>Demand before development</strong>
+              <p>We begin with the reader, the market, and the unanswered question, not a title in search of a reason to exist.</p>
+            </div>
+          </div>
+          <div class="approach-item">
+            <span class="num">02</span>
+            <div>
+              <strong>Distinct author voices</strong>
+              <p>Each author identity carries a coherent perspective, tone, and body of work, creating trust across the catalog.</p>
+            </div>
+          </div>
+          <div class="approach-item">
+            <span class="num">03</span>
+            <div>
+              <strong>Useful, not bloated</strong>
+              <p>Our books are designed to be finished, remembered, revisited, and recommended.</p>
+            </div>
+          </div>
+          <div class="approach-item">
+            <span class="num">04</span>
+            <div>
+              <strong>Craft in every touchpoint</strong>
+              <p>From editorial structure to cover design and reader experience, the details are part of the promise.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section partners" id="partners">
+      <div class="shell partner-panel">
+        <div class="partner-copy">
+          <p class="eyebrow">Partnerships</p>
+          <h2>Built for thoughtful collaboration.</h2>
+          <p>We welcome conversations with aligned experts, brands, educators, researchers, distribution partners, and sponsors interested in helping useful ideas reach the readers who need them.</p>
+          <ul class="partner-list">
+            <li>Editorial and subject-matter collaboration</li>
+            <li>Reader resources, companion tools, and sponsored education</li>
+            <li>Bulk, institutional, and community distribution</li>
+            <li>Audio, translation, licensing, and format partnerships</li>
+          </ul>
+          <div style="margin-top:38px;">
+            <a class="button button-primary" href="#contact">Discuss a partnership</a>
+          </div>
+        </div>
+        <div class="partner-art" aria-hidden="true">
+          <svg viewBox="0 0 360 360">
+            <circle cx="180" cy="180" r="160" fill="none" stroke="#B8923F" stroke-width="1"/>
+            <circle cx="180" cy="180" r="137" fill="none" stroke="#F3ECDD" stroke-width="0.6" stroke-dasharray="2 8" opacity="0.7"/>
+            <g stroke="#B8923F" stroke-width="1" opacity="0.52">
+              <line x1="180" y1="20" x2="180" y2="340"/>
+              <line x1="20" y1="180" x2="340" y2="180"/>
+              <line x1="67" y1="67" x2="293" y2="293"/>
+              <line x1="293" y1="67" x2="67" y2="293"/>
+            </g>
+            <g fill="none" stroke="#F3ECDD" stroke-width="2.2">
+              <path d="M180 58 C 222 114, 222 148, 180 180 C 138 148, 138 114, 180 58 Z"/>
+              <path d="M180 302 C 222 246, 222 212, 180 180 C 138 212, 138 246, 180 302 Z"/>
+              <path d="M58 180 C 114 138, 148 138, 180 180 C 148 222, 114 222, 58 180 Z"/>
+              <path d="M302 180 C 246 138, 212 138, 180 180 C 212 222, 246 222, 302 180 Z"/>
+            </g>
+            <circle cx="180" cy="180" r="22" fill="none" stroke="#B8923F" stroke-width="2"/>
+            <circle cx="180" cy="180" r="7" fill="#B8923F"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="shell contact-grid">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Have a question, an idea, or a door worth opening?</h2>
+          <p class="contact-copy">Tell us a little about what you have in mind. Reader inquiries, partnership conversations, rights questions, and professional introductions are all welcome.</p>
+          <p class="contact-note">Orquideum reviews each inquiry with care. Please allow a reasonable response window for non-urgent messages. You may also write directly to <a href="mailto:hello@orquideumbooks.com">hello@orquideumbooks.com</a>.</p>
+        </div>
+
+        <!-- This form opens the visitor's email application and addresses the message to Orquideum. -->
+        <form class="contact-form" name="orquideum-contact" action="mailto:hello@orquideumbooks.com" method="POST" enctype="text/plain" aria-label="Contact Orquideum Publishing">
+
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="inquiry">Inquiry type</label>
+            <select id="inquiry" name="inquiry" required>
+              <option value="" selected disabled>Select one</option>
+              <option>General question</option>
+              <option>Partnership or sponsorship</option>
+              <option>Bulk or institutional order</option>
+              <option>Rights, licensing, or media</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us what you would like to discuss." required></textarea>
+          </div>
+
+          <div class="form-footer">
+            <p class="form-note">By submitting, you agree to be contacted regarding your inquiry. We do not sell contact information.</p>
+            <button class="button button-primary" type="submit">Send inquiry</button>
+          </div>
+          <p class="form-status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <span>© <span id="year"></span> Orquideum Publishing</span>
+      <span class="footer-tagline">books distilled to their essence</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const form = document.querySelector(".contact-form");
+    const status = document.querySelector(".form-status");
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const data = new FormData(form);
+      const name = String(data.get("name") || "").trim();
+      const email = String(data.get("email") || "").trim();
+      const inquiry = String(data.get("inquiry") || "General inquiry").trim();
+      const message = String(data.get("message") || "").trim();
+      const subject = `Orquideum website inquiry: ${inquiry}`;
+      const body = [
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Inquiry type: ${inquiry}`,
+        "",
+        message
+      ].join("\n");
+
+      status.textContent = "Opening your email application…";
+      window.location.href = `mailto:hello@orquideumbooks.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  </script>
+</body>
+</html>
